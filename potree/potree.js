@@ -91591,8 +91591,8 @@ ENDSEC
                       </div>
 
                       <div id="map_layer">
-                          <div id="map_none" class="map_icon selected" title="Default"></div>
-                          <div id="map_terrain" class="map_icon" title="Terrain"></div>
+                          <div id="map_none" class="map_icon" title="Default"></div>
+                          <div id="map_terrain" class="map_icon selected" title="Google 3D"></div>
                           <div id="map_satellite" class="map_icon" title="Satellite"></div>
                           <div id="map_streetmap" class="map_icon" title="Street map"></div>
                       </div>
@@ -91619,7 +91619,7 @@ ENDSEC
 	      $("#map_terrain").click((event) => {
 	        viewer.setBackground(null);
 	        cesiumViewer.baseLayerPicker.viewModel.selectedImagery =
-	          imageryProviderViewModels[4];
+	          imageryProviderViewModels[0];
 	        $(".map_icon").removeClass("selected");
 	        $("#map_terrain").addClass("selected");
 	      });
