@@ -91640,7 +91640,9 @@ ENDSEC
 	        $("#map_streetmap").addClass("selected");
 	      });
 	    }
-
+	    let renderArea = $("#potree_render_area");
+	    let imgPhoenixLogo = $("<div id='sidebar_logo'></div>");
+	    renderArea.append(imgPhoenixLogo);
 	    return this.promiseGuiLoaded();
 	  }
 
