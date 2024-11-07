@@ -29,7 +29,7 @@
 	<script src="./libs/jstree/jstree.js"></script>
 	<script src="./potree/potree.js"></script>
 	<script src="./libs/plasio/js/laslaz.js"></script>
-	<script src="http://sampledata.phoenixlidar.com/viewer/library/lib/Cesium/Cesium.js"></script>
+	<script src="./libs/Cesium/Cesium.js"></script>
 
 	<!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
 	<!-- INCLUDE SETTINGS HERE -->
@@ -110,7 +110,7 @@
 		potreeViewer.setPointBudget(1_000_000);
 		potreeViewer.setMinNodeSize(0);
 		potreeViewer.loadSettingsFromURL();
-		potreeViewer.setBackground(null);
+		potreeViewer.setBackground("gradient");
 
 		potreeViewer.loadGUI(() => {
 			potreeViewer.setLanguage('en');
