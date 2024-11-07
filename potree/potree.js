@@ -91584,9 +91584,9 @@ ENDSEC
 	        });
 	      }
 	    );
-
-	    let quickButtons = $("#potree_quick_buttons");
-	    let elMap = $(`<div id="map_layer_part">
+	    if (typeof cesiumViewer !== "undefined") {
+	      let quickButtons = $("#potree_quick_buttons");
+	      let elMap = $(`<div id="map_layer_part">
                       <div id="map_layer_button">
                       </div>
 
@@ -91597,48 +91597,49 @@ ENDSEC
                           <div id="map_streetmap" class="map_icon" title="Street map"></div>
                       </div>
                   </div>`);
-	    quickButtons.append(elMap);
-	    const imageryProviderViewModels =
-	      cesiumViewer.baseLayerPicker.viewModel.imageryProviderViewModels;
+	      quickButtons.append(elMap);
+	      const imageryProviderViewModels =
+	        cesiumViewer.baseLayerPicker.viewModel.imageryProviderViewModels;
 
-	    $("#map_layer_button").click((event) => {
-	      let display = $("#map_layer").css("display");
-	      if (display == "none") {
-	        $("#map_layer").show(500);
-	      } else {
-	        $("#map_layer").hide(500);
-	      }
-	    });
+	      $("#map_layer_button").click((event) => {
+	        let display = $("#map_layer").css("display");
+	        if (display == "none") {
+	          $("#map_layer").show(500);
+	        } else {
+	          $("#map_layer").hide(500);
+	        }
+	      });
 
-	    $("#map_none").click((event) => {
-	      viewer.setBackground(this.originBackground);
-	      $(".map_icon").removeClass("selected");
-	      $("#map_none").addClass("selected");
-	    });
+	      $("#map_none").click((event) => {
+	        viewer.setBackground(this.originBackground);
+	        $(".map_icon").removeClass("selected");
+	        $("#map_none").addClass("selected");
+	      });
 
-	    $("#map_terrain").click((event) => {
-	      viewer.setBackground(null);
-	      cesiumViewer.baseLayerPicker.viewModel.selectedImagery =
-	        imageryProviderViewModels[4];
-	      $(".map_icon").removeClass("selected");
-	      $("#map_terrain").addClass("selected");
-	    });
+	      $("#map_terrain").click((event) => {
+	        viewer.setBackground(null);
+	        cesiumViewer.baseLayerPicker.viewModel.selectedImagery =
+	          imageryProviderViewModels[4];
+	        $(".map_icon").removeClass("selected");
+	        $("#map_terrain").addClass("selected");
+	      });
 
-	    $("#map_satellite").click((event) => {
-	      viewer.setBackground(null);
-	      cesiumViewer.baseLayerPicker.viewModel.selectedImagery =
-	        imageryProviderViewModels[3];
-	      $(".map_icon").removeClass("selected");
-	      $("#map_satellite").addClass("selected");
-	    });
+	      $("#map_satellite").click((event) => {
+	        viewer.setBackground(null);
+	        cesiumViewer.baseLayerPicker.viewModel.selectedImagery =
+	          imageryProviderViewModels[3];
+	        $(".map_icon").removeClass("selected");
+	        $("#map_satellite").addClass("selected");
+	      });
 
-	    $("#map_streetmap").click((event) => {
-	      viewer.setBackground(null);
-	      cesiumViewer.baseLayerPicker.viewModel.selectedImagery =
-	        imageryProviderViewModels[9];
-	      $(".map_icon").removeClass("selected");
-	      $("#map_streetmap").addClass("selected");
-	    });
+	      $("#map_streetmap").click((event) => {
+	        viewer.setBackground(null);
+	        cesiumViewer.baseLayerPicker.viewModel.selectedImagery =
+	          imageryProviderViewModels[9];
+	        $(".map_icon").removeClass("selected");
+	        $("#map_streetmap").addClass("selected");
+	      });
+	    }
 
 	    return this.promiseGuiLoaded();
 	  }
