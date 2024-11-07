@@ -91600,7 +91600,6 @@ ENDSEC
 	    quickButtons.append(elMap);
 	    const imageryProviderViewModels =
 	      cesiumViewer.baseLayerPicker.viewModel.imageryProviderViewModels;
-	    console.log("MODELS", imageryProviderViewModels);
 
 	    $("#map_layer_button").click((event) => {
 	      let display = $("#map_layer").css("display");
